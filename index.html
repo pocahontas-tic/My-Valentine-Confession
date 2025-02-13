@@ -21,6 +21,8 @@
         font-size: 24px;
         color: red;
         animation: float 4s linear infinite;
+        z-index: 9999; /* Puts hearts above everything */
+        pointer-events: none; /* So they don’t interfere with clicks */
     }
 </style>
         <title>Valentine Confession</title>
@@ -42,7 +44,10 @@
         }, 5000); // Remove hearts after animation ends
     }
 
-    setInterval(createHeart, 500); // Create a heart every 0.5s
+    window.onload = function() {
+    setInterval(createHeart, 500);
+};
+
 </script>
         <p class="instruction">Click my heart!</p>
         <div class="container">
