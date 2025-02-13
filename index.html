@@ -7,9 +7,43 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="valentine-confession.css">
+        <style>
+    @keyframes float {
+        0% { transform: translateY(0) scale(1); opacity: 1; }
+        50% { transform: translateY(-100px) scale(1.2); opacity: 0.8; }
+        100% { transform: translateY(-200px) scale(1); opacity: 0; }
+    }
+
+    .heart {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        font-size: 24px;
+        color: red;
+        animation: float 4s linear infinite;
+    }
+</style>
         <title>Valentine Confession</title>
     </head>
     <body>
+        <script>
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.classList.add("heart");
+        document.body.appendChild(heart);
+
+        // Random positioning
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 2 + 3 + "s"; // Random speed
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000); // Remove hearts after animation ends
+    }
+
+    setInterval(createHeart, 500); // Create a heart every 0.5s
+</script>
         <p class="instruction">Click my heart!</p>
         <div class="container">
             <label>
